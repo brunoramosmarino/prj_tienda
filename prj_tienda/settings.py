@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d&omz^%n!lm%%uvn4!3z8xj@sm^hsc&w_8&ugqb=y+w6m517ty'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -69,7 +69,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tienda_db',
         'USER': 'admin_tienda',
-        'PASSWORD': 'qwerty1234',
+        'PASSWORD': '',
     }
 }
 

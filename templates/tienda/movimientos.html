@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo_pahina %}Listado de Movimiento{% endblock %}
+{% block titulo_principal %} Listado de Movimientos {% endblock %}
+{% block bloque_principal %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 maincontent">
+            <table class="table table-striped table-secondary table-borderless text-center shadow p-2 mb-3">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Cliente</th>
+                        <th>Numero</th>
+                        <th>Fecha</th>
+                        <th>MODIFICAR</th>
+                        <th>ELIMINAR</th>
+                    </tr>
+                </thead>
+                {% for movimiento in movimientos %}
+                    <tr>
+                        <td>{{ movimiento.tipo }}</td>
+                        <td>{{ movimiento.cliente.persona }}</td>
+                        <td>{{ movimiento.numero }}</td>
+                        <td>{{ movimiento.fecha }}</td>
+                        <td><form action="{% url "modificar_movimiento" movimiento.numero %}"><button class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil-square"></i></button></form></td>
+                        <td><form action="{% url "eliminar_movimiento" movimiento.numero %}"><button class="btn btn-outline-secondary btn-sm"><i class="bi bi-trash-fill"></i></button></form></td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

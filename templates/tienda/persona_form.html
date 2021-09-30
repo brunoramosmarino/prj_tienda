@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block titulo_pahina %}Formulario de Persona{% endblock %}
+{% block titulo_principal %} Persona {% endblock %}
+{% block bloque_principal %}
+<div  class="container position-relative">
+    <form method="post" enctype="multipart/form-data" novalidate="">
+    {% csrf_token %}
+    <div  class="col-sm-7 maincontent position-absolute start-50 translate-middle-x">
+        {% if pk %}
+        <div class="row ">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.num_doc.label}} {{form.num_doc}}
+            </div>
+        </div>
+        {% else %}
+        <div class="row ">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.num_doc.label.as_hidden}} {{form.num_doc.as_hidden}}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{ form.nombre.label }} {{ form.nombre }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.apellido.label}} {{form.apellido}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.fecha_nac.label}} {{form.fecha_nac}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.localidad.label}} {{form.localidad}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.direccion.label}} {{form.direccion}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.telefono.label}} {{form.telefono}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 position-relative start-50 translate-middle-x">
+                {{form.email.label}} {{form.email}}
+            </div>
+        </div>
+        <br>
+        <br>
+        <input type="submit" name="submit" value="Guardar" class="btn btn-color position-relative start-50 translate-middle-x shadow p-2 mb-3 rounded" style="background-color: #C0C0C0; color: #000000; font-weight: 600;">
+    </div>
+    </form>
+</div>
+{% endblock %}

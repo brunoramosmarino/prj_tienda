@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block titulo_pahina %}Listado de Personas{% endblock %}
+{% block titulo_principal %}Listado de Personas{% endblock %}
+{% block bloque_principal %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 maincontent">
+            <table class="table table-striped table-secondary table-borderless shadow p-2 mb-3 rounded text-center">
+                <thead>
+                    <tr>
+                        
+                        <th>D.N.I</th>
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>Localidad</th>
+                        <th>MODIFICAR</th>
+                        <th>ELIMINAR</th>
+                    </tr>
+                </thead>
+                {% for persona in personas %}
+                    <tr>
+                        <td>{{ persona.num_doc }}</td>
+                        <td>{{ persona.apellido }}</td>
+                        <td>{{ persona.nombre }}</td>
+                        <td>{{ persona.localidad }}</td>
+                        <td><form action="{% url "modificar_persona" persona.num_doc %}"><button class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil-square"></i></button></form></td>
+                        <td><form action="{% url "eliminar_persona" persona.num_doc %}"><button class="btn btn-outline-secondary btn-sm"><i class="bi bi-trash-fill"></i></button></form></td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.menu, name="menu"),
+    path("localidades", views.localidad_listar, name='localidad_listar'),
+    path("personas", views.persona_listar, name='persona_listar'),
+    path("clientes", views.cliente_listar, name='cliente_listar'),
+    path('movimientos', views.movimiento_listar,  name='movimiento_listar'),
+    path('articulos',views.articulo_listar, name='articulo_listar'),
+    path('items', views.item_listar, name='item_listar'),
+    path('cargos', views.cargo_listar, name='cargo_listar'),
+    path('empleados', views.empleado_listar, name='empleado_listar'),
+    path('nueva_localidad', views.nueva_localidad, name='nueva_localidad'),
+    path("modificar_localidad/<int:pk>", views.modificar_localidad, name="modificar_localidad"),
+    path("eliminar_localidad/<int:pk>", views.eliminar_localidad, name="eliminar_localidad"),
+    path('nueva_persona', views.nueva_persona, name='nueva_persona'),
+    path("modificar_persona/<int:pk>", views.modificar_persona, name="modificar_persona"),
+    path("eliminar_persona/<int:pk>", views.eliminar_persona, name="eliminar_persona"),
+    path("nuevo_cliente", views.nuevo_cliente, name='nuevo_cliente'),
+    path("modificar_cliente/<int:pk>", views.modificar_cliente, name="modificar_cliente"),
+    path("eliminar_cliente/<int:pk>", views.eliminar_cliente, name="eliminar_cliente"),
+    path("nuevo_movimiento", views.nuevo_movimiento, name="nuevo_movimiento"),
+    path("modificar_movimiento/<int:pk>", views.modificar_movimiento, name="modificar_movimiento"),
+    path("eliminar_movimietno/<int:pk>", views.eliminar_movimiento, name="eliminar_movimiento"),
+    path("nuevo_articulo", views.nuevo_articulo, name="nuevo_articulo"),
+    path("modificar_articulo/<int:pk>", views.modificar_articulo, name="modificar_articulo"),
+    path("elminar_articulo/<int:pk>", views.eliminar_articulo, name="eliminar_articulo"),
+    path("nuevo_cargo", views.nuevo_cargo, name="nuevo_cargo"),
+    path("modificar_cargo/<int:pk>", views.modificar_cargo, name="modificar_cargo"),
+    path("elminar_cargo/<int:pk>", views.eliminar_cargo, name="eliminar_cargo"),
+    path("nuevo_item", views.nuevo_item, name="nuevo_item"),
+    path("modificar_item/<int:pk>", views.modificar_item, name="modificar_item"),
+    path("elminar_item/<int:pk>", views.eliminar_item, name="eliminar_item"),
+    path("nuevo_empleado", views.nuevo_empleado, name="nuevo_empleado"),
+    path("modificar_empleado/<int:pk>", views.modificar_empleado, name="modificar_empleado"),
+    path("elminar_empleado/<int:pk>", views.eliminar_empleado, name="eliminar_empleado"),
+    path("persona_autocompletar",views.PersonaAutocomplete.as_view(), name="persona_autocompletar")
+
+]
